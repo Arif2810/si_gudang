@@ -1,0 +1,19 @@
+.container h2{
+	font-weight: bold;
+	margin-bottom: -10px;
+}
+
+.container hr{
+	width: 300px;
+	border: 0;
+	border-top: 4px double #8c8c8c;
+}
+
+.container p{
+	font-size: 16px;
+}
+
+.about{
+	padding: 10px;
+	margin: 5px;
+}
