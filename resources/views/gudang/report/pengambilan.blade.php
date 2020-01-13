@@ -3,12 +3,23 @@
 <head>
   @include('templates.head')
   <title>Laporan Pengambilan</title>
+  <style type="text/css">
+    @media print{
+      .tambah{
+        display: none;
+      }
+      
+    }
+  </style>
 </head>
 
 <body>
   <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
-    @include('templates.sidebar')
+    <div class="tambah">
+      @include('templates.sidebar')
+      
+    </div>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->

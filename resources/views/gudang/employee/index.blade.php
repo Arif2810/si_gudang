@@ -41,9 +41,6 @@
                     <th>No</th>
                     <th>SAP</th>
                     <th>Nama</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Agama</th>
-                    <th>Alamat</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -53,9 +50,6 @@
                     <td>{{ $no++ }}</td>
                     <td>{{ $employees->sap }}</td>
                     <td>{{ $employees->nama_karyawan }}</td>
-                    <td>{{ $employees->genders->nama_gender }}</td>
-                    <td>{{ $employees->agamas->nama_agama }}</td>
-                    <td>{{ $employees->alamat }}</td>
                     <td>
                       <a href="employee/{{$employees->id_karyawan}}/show"><button class="btn btn-primary">Detail</button></a>
                       @if(Auth::user()->akses == 'admin')

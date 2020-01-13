@@ -40,37 +40,11 @@
 											<label>Nama</label>
 											<input required="" class="form-control" type="text" name="nama_karyawan">
 										</div>
-										<div class="form-group">
-											<label>Jenis Kelamin</label>
-											<select class="form-control" name="id_gender">
-												<option>- Jenis Kelamin -</option>
-												@foreach($genders as $gender)
-												<option value="{{$gender->id_gender}}">{{$gender->nama_gender}}</option>
-												@endforeach
-											</select>
-										</div>
-										<div class="form-group">
-											<label>Tanggal Lahir</label>
-											<input class="form-control" type="date" name="tgl_lahir">
-										</div>
 			            			</div>
 			            			<div class="col-md-6 pl-4 pr-4">
 			            				<div class="form-group">
 											<label>Tanggal Masuk</label>
 											<input required="" class="form-control" type="date" name="tgl_daftar" value="<?=date('Y-m-d')?>">
-										</div>
-										<div class="form-group">
-											<label>Agama</label>
-											<select class="form-control" name="id_agama">
-												<option>- Pilih Agama -</option>
-												@foreach($agamas as $agama)
-												<option value="{{$agama->id_agama}}">{{$agama->nama_agama}}</option>
-												@endforeach
-											</select>
-										</div>
-										<div class="form-group">
-											<label>Alamat</label>
-											<textarea class="form-control" type="text" name="alamat" cols="80" rows="3"></textarea>
 										</div>
 										<div class="form-group">
 											<label>No Telepon</label>

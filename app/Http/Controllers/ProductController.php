@@ -20,9 +20,17 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::orderBy('id_produk', 'DESC')->get();
+        if($request->has('cari')){
+            $products = Product::where(strtolower('nama_produk'), 'LIKE','%'. strtolower($request->cari) .'%')
+            ->orWhere(strtolower('kode_produk'), 'LIKE', '%'. strtolower($request->cari) .'%')
+            ->orWhere('stok_produk', 'LIKE', '%'. $request->cari .'%')
+            ->orderBy('id_produk', 'DESC')->paginate();
+        }
+        else{
+            $products = Product::orderBy('id_produk', 'DESC')->paginate(5);  
+        }
         return view('gudang.product.index', ['products'=>$products]);
     }
 

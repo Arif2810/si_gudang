@@ -42,8 +42,6 @@
                     <input required="" class="form-control form-control-sm" type="date" name="tgl_sell">
                   </div>
 
-
-
                   <div class="form-group">
                     <label>Pengambil</label>
                     <select class="form-control form-control-sm" name="id_karyawan">
@@ -54,8 +52,6 @@
                     </select>
                   </div>
 
-
-
                   <div class="form-group">
                     <label>Nama Barang</label>
                     <select class="form-control form-control-sm" name="id_produk">
@@ -64,6 +60,9 @@
                       <option value="{{$product->id_produk}}">{{$product->nama_produk}}</option>
                       @endforeach
                     </select>
+                    <div style="color: salmon">
+                      <small><i>nama barang harus sudah terdaftar di data barang</i></small>
+                    </div>
                   </div>
 
 

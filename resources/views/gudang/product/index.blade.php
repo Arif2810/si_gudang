@@ -5,8 +5,17 @@
   @include('templates.head')
   <title>Halaman Data Barang</title>
   <style type="text/css">
+    section{
+      min-height: 500px;
+    }
+
     section img{
       width: 50px;
+    }
+    @media print{
+      .print{
+        display: none;
+      }
     }
   </style>
 </head>
@@ -14,7 +23,9 @@
 <body>
   <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
-    @include('templates.sidebar')
+    <div class="print">
+      @include('templates.sidebar')
+    </div>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
@@ -31,12 +42,24 @@
             <!-- /.box-header -->
             <div class="box-body">
               @include('gudang/notification')
-              <div>
+              <div style="margin-bottom: 10px;" class="print">
                 @if(Auth::user()->akses == 'admin')
                 <a href="{{ route('product.create') }}"> <button class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-plus"></i> Tambah data barang</button></a>
                 @endif
-              </div><br>
-              <table id="example1" class="table table-bordered table-hover">
+              </div>
+
+              <div style="margin-bottom: 10px;" class="print">
+                <form class="form-inline" action="{{ route('product.index') }}" method="get">
+                  <div class="form-group">
+                    <input type="text" name="cari" class="form-control" placeholder="nama barang...">
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Cari</button>
+                  </div>
+                </form>
+              </div>
+              
+              <table class="table table-bordered table-hover">
                 <thead>
                   <?php $no=1; ?>
                   <tr style="background-color: rgb(230, 230, 230);">
@@ -46,7 +69,7 @@
                     <th>Kategori</th>
                     <th>Foto</th>
                     <th>Stok</th>
-                    <th>Action</th>
+                    <th class="print">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -58,7 +81,7 @@
                     <td>{{ $product->categories->nama_kategori }}</td>
                     <td><img src="{{asset('image/'.$product->image)}}" alt="gambar"></td>
                     <td>{{ $product->stok_produk }}</td>
-                    <td>
+                    <td class="print">
                       <a href="product/{{$product->id_produk}}/show"><button class="btn btn-primary btn-sm">Detail</button></a>
                       @if(Auth::user()->akses == 'admin')
                         <a href="product/{{$product->id_produk}}/edit"><button class="btn btn-warning btn-sm">Edit</button></a>
@@ -68,9 +91,13 @@
                   </tr>
                   @endforeach
                 </tbody>
-
               </table>
-            </div>
+
+              <div class="print">
+                <ul class="pagination">
+                  {{ $products->links() }}
+                </ul>
+              </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
@@ -83,21 +110,6 @@
   <!-- ./wrapper -->
 
   @include('templates.scripts')
-
-  <!-- page script -->
-  <script>
-    $(function () {
-      $('#example1').DataTable()
-      $('#example2').DataTable({
-        'paging'      : true,
-        'lengthChange': false,
-        'searching'   : false,
-        'ordering'    : true,
-        'info'        : true,
-        'autoWidth'   : false
-      })
-    })
-  </script>
 
   <!-- modal -->
   <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

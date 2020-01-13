@@ -50,7 +50,7 @@
         <div class="container-fluid">
           <div class="box" style="padding: 0 30px">
             <div class="box-header">
-              <h3 class="box-title">Data kategori training</h3>
+              <h3 class="box-title">Data kategori barang</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

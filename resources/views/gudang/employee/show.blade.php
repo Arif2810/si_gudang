@@ -34,10 +34,8 @@
 
               <h5>{{ $employees->nama_karyawan }} / {{ $employees->sap }}</h5>
               <p>
-                Jenis Kelamin : {{ $employees->genders->nama_gender }} <br>
                 Tanggal Masuk Kerja : {{ $employees->tgl_daftar }} <br>
-                Agama : {{ $employees->agamas->nama_agama }} <br>
-                Alamat : {{ $employees->alamat }} Telepon {{ $employees->telp }}
+                Telepon {{ $employees->telp }}
               </p>
             </div>
             <!-- /.box-body -->

@@ -54,9 +54,6 @@ Route::group(['middleware'=>'auth'], function(){
 		Route::resource('category', 'CategoryController');
 		Route::resource('unit', 'UnitController');
 		Route::resource('user', 'UserController');
-		Route::resource('agama', 'AgamaController');
-		Route::resource('venue', 'VenueController');
-		Route::resource('gender', 'GenderController');
 	});
 	// Route::get('/user', 'UserController@index')->name('user.index')->middleware('akses.admin');
 	//=========================================================================

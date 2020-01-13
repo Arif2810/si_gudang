@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 use App\Employee;
-use App\Agama;
-use App\Gender;
 
 class EmployeeController extends Controller
 {
@@ -30,10 +28,7 @@ class EmployeeController extends Controller
      */
     public function create(){
 
-        $agamas = Agama::all();
-        $genders = Gender::all();
-
-        return view('gudang.employee.create', compact('agamas', 'genders'));
+        return view('gudang.employee.create');
     }
 
     /**
@@ -48,11 +43,7 @@ class EmployeeController extends Controller
       $employees->id_karyawan   = $request->id_karyawan;
       $employees->sap         = $request->sap;
       $employees->nama_karyawan = $request->nama_karyawan;
-      $employees->id_gender   = $request->id_gender;
-      $employees->tgl_lahir   = $request->tgl_lahir;
       $employees->tgl_daftar  = $request->tgl_daftar;
-      $employees->id_agama    = $request->id_agama;
-      $employees->alamat      = $request->alamat;
       $employees->telp        = $request->telp;
       $employees->save();
       // dd('kesini');
@@ -108,11 +99,7 @@ class EmployeeController extends Controller
         $employees = Employee::find($id_karyawan);
         $employees->sap           = $request->sap;
         $employees->nama_karyawan = $request->nama_karyawan;
-        $employees->id_gender     = $request->id_gender;
-        $employees->tgl_lahir     = $request->tgl_lahir;
         $employees->tgl_daftar    = $request->tgl_daftar;
-        $employees->id_agama      = $request->id_agama;
-        $employees->alamat        = $request->alamat;
         $employees->telp          = $request->telp;
         $employees->save();
         return redirect('employee')->with('pesan', 'Data berhasil di update');

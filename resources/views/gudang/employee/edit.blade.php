@@ -41,28 +41,12 @@
 										<label>Nama</label>
 										<input class="form-control" type="text" name="nama_karyawan" value="{{ $employees->nama_karyawan }}">
 									</div>
-									<div class="form-group">
-										<label>Jenis Kelamin</label>
-										{{ Form::select('id_gender', \App\Gender::pluck('nama_gender', 'id_gender'), NULL, ['class'=>'form-control']) }}
-									</div>
-									<div class="form-group">
-										<label>Tanggal Masuk Kerja</label>
-										<input class="form-control" type="date" name="tgl_lahir" value="{{ $employees->tgl_lahir }}">
-									</div>
 		            			</div>
 
 		            			<div class="col-md-6 pl-4 pr-4">
 		            				<div class="form-group">
 										<label>Tanggal Daftar</label>
 										<input class="form-control" type="date" name="tgl_daftar" value="{{ $employees->tgl_daftar }}">
-									</div>
-									<div class="form-group">
-										<label>Agama</label>
-										{{ Form::select('id_agama', \App\Agama::pluck('nama_agama', 'id_agama'), NULL, ['class'=>'form-control']) }}
-									</div>
-									<div class="form-group">
-										<label>Alamat</label>
-										<textarea class="form-control" name="alamat" cols="80" rows="3">{{ $employees->alamat }}</textarea>
 									</div>
 									<div class="form-group">
 										<label>No Telepon</label>

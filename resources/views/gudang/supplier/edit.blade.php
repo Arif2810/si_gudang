@@ -36,19 +36,6 @@
 									<input class="form-control" type="text" name="nama_supplier" value="{{ $suppliers->nama_supplier }}">
 								</div>
 								<div class="form-group">
-									<label>Kontak Person</label>
-									<input class="form-control" type="text" name="cp" value="{{ $suppliers->cp }}">
-								</div>
-								<div class="form-group">
-									<label>Nomor Telepon</label>
-									<input class="form-control" type="text" name="telp_supplier" value="{{ $suppliers->telp_supplier }}">
-								</div>
-								<div class="form-group">
-									<label>Alamat</label>
-									<textarea class="form-control" name="alamat_supplier" cols="80" rows="3">{{ $suppliers->alamat_supplier }}</textarea>
-									<!-- <input class="form-control" type="text" name="alamat_supplier" value="{{ $suppliers->alamat_supplier }}"> -->
-								</div>
-								<div class="form-group">
 									<input class="btn btn-primary" type="submit" name="submit" value="Simpan">
 									<input type="reset" class="btn btn-danger" value="Reset">
 									{{csrf_field()}}

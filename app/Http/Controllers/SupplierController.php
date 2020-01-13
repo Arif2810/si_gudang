@@ -42,9 +42,6 @@ class SupplierController extends Controller
       $suppliers = new Supplier;
       $suppliers->id_supplier     = $request->id_supplier;
       $suppliers->nama_supplier   = $request->nama_supplier;
-      $suppliers->cp              = $request->cp;
-      $suppliers->alamat_supplier = $request->alamat_supplier;
-      $suppliers->telp_supplier   = $request->telp_supplier;
       $suppliers->save();
       // dd('kesini');
 
@@ -85,9 +82,6 @@ class SupplierController extends Controller
 
       $suppliers = Supplier::find($id_supplier);
       $suppliers->nama_supplier   = $request->nama_supplier;
-      $suppliers->cp              = $request->cp;
-      $suppliers->telp_supplier   = $request->telp_supplier;
-      $suppliers->alamat_supplier = $request->alamat_supplier;
       $suppliers->save();
       return redirect('supplier')->with('pesan', 'Data berhasil di update');
     }

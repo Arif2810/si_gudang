@@ -4,7 +4,7 @@
 <head>
 
   @include('templates.head')
-  <title>Halaman Supplier</title>
+  <title>Seksi Pemasok</title>
 
 </head>
 
@@ -24,14 +24,14 @@
         <div class="container-fluid">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Supplier</h3>
+              <h3 class="box-title">Data Pemasok</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               @include('gudang/notification')
               <div>
                 @if(Auth::user()->akses == 'admin')
-                <a href="{{ route('supplier.create') }}"> <button class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-plus"></i> Tambah Supplier</button></a>
+                <a href="{{ route('supplier.create') }}"> <button class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-plus"></i> Tambah seksi pemasok</button></a>
                 @endif
               </div><br>
               <table id="example1" class="table table-bordered table-hover">
@@ -39,10 +39,7 @@
                   <?php $no=1; ?>
                   <tr style="background-color: rgb(230, 230, 230);">
                     <th>No</th>
-                    <th>Nama Supplier</th>
-                    <th>Kontak Person</th>
-                    <th>Alamat</th>
-                    <th>Nomor Telepon</th>
+                    <th>Nama Seksi</th>
                     @if(Auth::user()->akses !== 'admin')
                       <th style="display: none;" class="none">Action</th>
                     @else
@@ -55,10 +52,6 @@
                   <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{ $supplier->nama_supplier }}</td>
-                    <td>{{ $supplier->cp }}</td>
-                    <td>{{ $supplier->alamat_supplier }}</td>
-                    <td>{{ $supplier->telp_supplier }}</td>
-                    
                       @if(Auth::user()->akses == 'admin')
                     <td>
                       <a href="supplier/{{$supplier->id_supplier}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
